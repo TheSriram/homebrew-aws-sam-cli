@@ -4,7 +4,7 @@ class AwsSamCli < Formula
   desc "SAM command line interface"
   homepage "https://mysamwebpage.com/aws-sam-cli"
   url "https://www.dropbox.com/s/n8ouzj5mrg4mzpb/aws-sam-cli.tar.gz?dl=0"
-  sha256 "55cfcbb5039c731fb6da0c886ae73fcd52f3bc82145ee457250aeed58a6cb695"
+  sha256 "bc577a732752a77a82fc667987163aac220f5671b77f65fe41715f22cb3b4dad"
   head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
 
   bottle do
