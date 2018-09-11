@@ -1,4 +1,4 @@
-class Awscli < Formula
+class AwsSamcli < Formula
   include Language::Python::Virtualenv
 
   desc "SAM command line interface"
