@@ -7,14 +7,6 @@ class AwsSamCli < Formula
   sha256 "22c9f6ddcdec5a16a6131c11614c6a51e6f7fd376e496fd1efe8eb15a058f8c2"
   head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "f4a08767ed2c88b68c4a0920e0c26d4a11e0f15da8c2ada114988b4717b047e0" => :mojave
-    sha256 "f74796b947d2ed4bdc665054a0de72e2c4641b056fe190081a1a0e5706ebb7a5" => :high_sierra
-    sha256 "ee00c838d75b622cc80df1fbd4b9e331d6d6820cf63031e785c61f3531715367" => :sierra
-    sha256 "97b011092a64395ebfbd03cf0d749bb198f008bb4c09d38a5d12db9aaa9bdfe4" => :el_capitan
-  end
-
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
   depends_on "python"
