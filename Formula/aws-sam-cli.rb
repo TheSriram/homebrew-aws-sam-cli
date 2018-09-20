@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "SAM command line interface"
   homepage "https://mysamwebpage.com/aws-sam-cli"
-  url "https://www.dropbox.com/s/m23f6t258f7ekbz/aws-sam-cli-0.6.0.tar.gz"
-  sha256 "22c9f6ddcdec5a16a6131c11614c6a51e6f7fd376e496fd1efe8eb15a058f8c2"
+  url "https://github.com/awslabs/aws-sam-cli/archive/v0.6.0.tar.gz"
+  sha256 "f85762aba829525eb8c6a52d354ef7254ed37e5bc8a7389885fd0daebfea1c96"
   head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
