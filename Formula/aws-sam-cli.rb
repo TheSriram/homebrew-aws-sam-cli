@@ -6,11 +6,7 @@ class AwsSamCli < Formula
   url "https://github.com/awslabs/aws-sam-cli/archive/v0.6.0.tar.gz"
   sha256 "f85762aba829525eb8c6a52d354ef7254ed37e5bc8a7389885fd0daebfea1c96"
   head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
-
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "e861e50c9a0b5b595dd4c0a548796d05cc449aa64dc14e6a989e00ba92aa7700" => :sierra
-  end
+  bottle :unneeded
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
   # Sierra
