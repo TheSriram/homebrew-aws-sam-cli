@@ -2,9 +2,9 @@ class AwsSamCli < Formula
   include Language::Python::Virtualenv
 
   desc "SAM command line interface"
-  homepage "https://mysamwebpage.com/aws-sam-cli"
-  url "https://github.com/awslabs/aws-sam-cli/archive/v0.6.0.tar.gz"
-  sha256 "f85762aba829525eb8c6a52d354ef7254ed37e5bc8a7389885fd0daebfea1c96"
+  homepage "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide"
+  url "https://files.pythonhosted.org/packages/6c/e7/bfd43ec02c19865b852a8a4351b5af193adecae8116a967903b8854277f9/aws-sam-cli-0.6.1.tar.gz"
+  sha256 "446dc06b9f081f4975e5bf1933a7017486278df160ae9dffa35f35eb84114357"
   head "https://github.com/TheSriram/aws-sam-cli.git", :branch => "develop"
   bottle do
     root_url "https://dl.bintray.com/thesriram/aws-sam-cli"
@@ -14,8 +14,6 @@ class AwsSamCli < Formula
     sha256 "8792b7889e53099e8dc63dab61e88bc0d039a277413b64bd3ab103ac8fbb8a1e" => :x86_64_linux
   end
 
-  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
-  # Sierra
   depends_on "python"
 
   def install
