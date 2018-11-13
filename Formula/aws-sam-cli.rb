@@ -14,7 +14,7 @@ class AwsSamCli < Formula
     sha256 "8792b7889e53099e8dc63dab61e88bc0d039a277413b64bd3ab103ac8fbb8a1e" => :x86_64_linux
   end
 
-  depends_on "python"
+  depends_on "python3"
 
   def install
     venv = virtualenv_create(libexec, "python3")
