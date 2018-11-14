@@ -1,0 +1,29 @@
+sudo: false
+language: python
+
+os:
+  - osx
+compiler:
+  - clang
+branches:
+  only:
+    - master
+before_install:
+  - brew upgrade
+  - brew update
+script:
+  - brew tap thesriram/aws-sam-cli
+  - brew install --verbose --build-from-source --build-bottle aws-sam-cli
+  - brew bottle aws-sam-cli
+before_deploy:
+  - export RELEASE_FILES=$(ls *.bottle.tar.gz)
+  - 'echo ''Deploying files to Github: ''$RELEASE_FILES'
+deploy:
+  provider: releases
+  api_key:
+    secure: h4Tp5JsD4SVRdTDgoC5UlX0Zi4r4IuekLT5BvN+CyZ9DgU2eXr+d14vP9fhAOueHt8SLNADQ3+slLmxx/ewAnMrc1qXZCiSLbg/d9DpAvnzlmrD3K2jQPLqAMi6ovSNGSI9zlyZGEUuAws3PSdunuHEhxC/dHEL3mKKTKtAru0wtM+l967Egm+knuXWictSOpAZCcuv+GRkF5uCePwVRHCelMvy/PhyRcf3hO5KML03uIcOWCwaUbticlJJhJtuzknBPKpUKH7txnPN70OEqQOihxzylG3U+pCGgOUCaFzQEHlU2NZ1VvPJTPre6S5s05B9l07AsPYvMVivGrfi4EqZJprbpnoiyKp6X5E/Qv7fJIlHqGSnrEQdMz3CzKJ7Ka8SmsOWjMDbIah8SPYNU3FxxdjZKg4LPSNMb0zsLgL4thcvlAIMX8T6Jz99Ud9MImB7xaFZcQISfcOS8pxT4lGjk0ma1qnGIsHvX9iyKNDdXNzjrH4sbOOQY/yI0vpEcVymOVek4+2Wtl8XO8qTTbIycZ36WuZAPEXXM/AQCXOGGIQcwEuyc6r4IktHzY2W/IeYPizNbV0o0PPqabXOn+8rO5KqBlsVSNhZccfqVW8GSvZ7U59HINElqyqPzlRYoVc/SflAwac+MAUnjXxJQdviz8JfIdtla35tzG0OC1K8=
+  file: "{$RELEASE_FILES}"
+  skip_cleanup: true
+  on:
+    repo: TheSriram/homebrew-aws-sam-cli
+  overwrite: true
