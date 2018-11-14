@@ -8,11 +8,10 @@ branches:
   only:
     - master
 before_install:
-  - brew upgrade
   - brew update
 script:
   - brew tap thesriram/aws-sam-cli
-  - brew install --verbose --build-from-source --build-bottle aws-sam-cli
+  - brew install --build-from-source --build-bottle aws-sam-cli
   - brew bottle aws-sam-cli
 before_deploy:
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
@@ -20,7 +19,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key:
-    secure: h4Tp5JsD4SVRdTDgoC5UlX0Zi4r4IuekLT5BvN+CyZ9DgU2eXr+d14vP9fhAOueHt8SLNADQ3+slLmxx/ewAnMrc1qXZCiSLbg/d9DpAvnzlmrD3K2jQPLqAMi6ovSNGSI9zlyZGEUuAws3PSdunuHEhxC/dHEL3mKKTKtAru0wtM+l967Egm+knuXWictSOpAZCcuv+GRkF5uCePwVRHCelMvy/PhyRcf3hO5KML03uIcOWCwaUbticlJJhJtuzknBPKpUKH7txnPN70OEqQOihxzylG3U+pCGgOUCaFzQEHlU2NZ1VvPJTPre6S5s05B9l07AsPYvMVivGrfi4EqZJprbpnoiyKp6X5E/Qv7fJIlHqGSnrEQdMz3CzKJ7Ka8SmsOWjMDbIah8SPYNU3FxxdjZKg4LPSNMb0zsLgL4thcvlAIMX8T6Jz99Ud9MImB7xaFZcQISfcOS8pxT4lGjk0ma1qnGIsHvX9iyKNDdXNzjrH4sbOOQY/yI0vpEcVymOVek4+2Wtl8XO8qTTbIycZ36WuZAPEXXM/AQCXOGGIQcwEuyc6r4IktHzY2W/IeYPizNbV0o0PPqabXOn+8rO5KqBlsVSNhZccfqVW8GSvZ7U59HINElqyqPzlRYoVc/SflAwac+MAUnjXxJQdviz8JfIdtla35tzG0OC1K8=
+    secure: "MFaU7+1gla8AP51w0WBNbhtKIMTiu8okk0UFoeaAT1EZzRm43qIPMYUBybxTx/nfs06MOWS9x+LWQ/3rPuvXkpSHmYJLW1MJW4JrLZYSbUFAY/HMqnr2ypDVUBwzwOxGBX+6qiJpXZpO9d9R7FyM9lN1Z0fDk3aMMV5+TFizzZgCpTUbbP+grOXrIpMsYcxqmOI6brKaPs340EudV4FNPVUWx8qfBkeqKVqIVTvivlSJLqFwaRwl3Opif8H/X1Bx0mDCP07EEUlWjyv6wA5gsS9VmhfhAP8kvzvnIhmhYCwnDIZV73zQFzzTOsDAD4CBTEsMIA4mCngc6iAUz9JYPhgB9KE36nX8fBgpa4cIu/71xsgg/vvC99S5ShpYTOZ/BhMjzdf/JyWKg8clBclJabLL3HfdTuXA+kMIqdsxgr7GM0PwnQn3yihNBLebWyZF4YT1/6NWTH/wcNxhfciJjUcDQGxnF1dlAgrVnyee+R+q8fX2kyoVXgV2kDTtj+HBU4z4pzFX51k4bbPVvbFMPfRxlE7lvGxVfizqGHewK6D2+TBdF13rtpkbOU8CR2xX8Q9WTK2iTZZSj4gbLjfB415x4IN/clKMP0iLVq1E+toRrU48eSElfgZncdSHfgxRk8CgiO1eZI0EfxgfMP/OdtmPVJR1To7evsVzW06QRzo="
   file: "{$RELEASE_FILES}"
   skip_cleanup: true
   on:
