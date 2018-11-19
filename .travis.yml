@@ -20,6 +20,7 @@ deploy:
   provider: releases
   api_key:
     secure: $GITHUB_TOKEN
+  file: $RELEASE_FILES
   skip_cleanup: true
   on:
     repo: TheSriram/homebrew-aws-sam-cli
