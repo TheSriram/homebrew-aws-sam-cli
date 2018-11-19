@@ -10,8 +10,7 @@ branches:
 before_install:
   - brew update
 script:
-  - brew tap thesriram/aws-sam-cli
-  - brew install --build-from-source --build-bottle aws-sam-cli
+  - brew install --build-from-source --build-bottle Formula/aws-sam-cli.rb
   - brew bottle aws-sam-cli
 before_deploy:
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
