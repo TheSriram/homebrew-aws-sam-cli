@@ -23,5 +23,6 @@ deploy:
   file: $RELEASE_FILES
   skip_cleanup: true
   on:
+    tags: true
     repo: TheSriram/homebrew-aws-sam-cli
   overwrite: true
