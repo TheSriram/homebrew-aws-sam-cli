@@ -1,3 +1,5 @@
+<img src="https://travis-ci.com/TheSriram/homebrew-aws-sam-cli.svg?branch=master" alt="build:started">
+
 # homebrew-aws-sam-cli
 
 ```
