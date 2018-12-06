@@ -3,15 +3,10 @@ class AwsSamCli < Formula
 
   desc "SAM command line interface"
   homepage "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide"
-  url "https://files.pythonhosted.org/packages/6c/e7/bfd43ec02c19865b852a8a4351b5af193adecae8116a967903b8854277f9/aws-sam-cli-0.6.1.tar.gz"
-  sha256 "446dc06b9f081f4975e5bf1933a7017486278df160ae9dffa35f35eb84114357"
+  url "https://files.pythonhosted.org/packages/8f/29/a0cb402d1875d0b35aa7c99b644a75fc72762dce25bc4fce7d62e1b70825/aws-sam-cli-0.8.1.tar.gz"
+  sha256 "cdcc9864f4b37865bf5669df9a91a4a0d0ed4ab4975ba4ad9e4e4b84012c3345"
   head "https://github.com/TheSriram/aws-sam-cli.git", :branch => "develop"
   bottle do
-    root_url "https://dl.bintray.com/thesriram/aws-sam-cli"
-    cellar :any_skip_relocation
-    rebuild 1
-    sha256 "e861e50c9a0b5b595dd4c0a548796d05cc449aa64dc14e6a989e00ba92aa7700" => :sierra
-    sha256 "8792b7889e53099e8dc63dab61e88bc0d039a277413b64bd3ab103ac8fbb8a1e" => :x86_64_linux
   end
 
   depends_on "python3"
