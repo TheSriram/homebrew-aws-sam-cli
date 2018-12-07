@@ -4,9 +4,6 @@ os: osx
 osx_image: xcode9.2
 compiler:
   - clang
-branches:
-  only:
-    - master
 before_install:
   - brew update
 script:
@@ -23,6 +20,7 @@ deploy:
   file: $RELEASE_FILES
   skip_cleanup: true
   on:
+    all_branches: true
     tags: true
     repo: TheSriram/homebrew-aws-sam-cli
   overwrite: true
