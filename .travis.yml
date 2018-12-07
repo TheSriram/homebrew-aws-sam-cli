@@ -8,6 +8,8 @@ before_install:
   - brew update
 script:
   - git fetch --tags
+  - git checkout $(git describe --abbrev=0 --tags)
+  - git log
   - brew tap thesriram/aws-sam-cli
   - brew install --build-from-source --build-bottle Formula/aws-sam-cli.rb
   - brew bottle aws-sam-cli
