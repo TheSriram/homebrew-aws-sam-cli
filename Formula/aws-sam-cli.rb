@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "AWS SAM CLI"
   homepage "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide"
-  url "https://files.pythonhosted.org/packages/8f/29/a0cb402d1875d0b35aa7c99b644a75fc72762dce25bc4fce7d62e1b70825/aws-sam-cli-0.8.1.tar.gz"
-  sha256 "cdcc9864f4b37865bf5669df9a91a4a0d0ed4ab4975ba4ad9e4e4b84012c3345"
+  url "https://files.pythonhosted.org/packages/2d/47/618e89211a10c3fc007949f84e88544722e8f9e43299ed28f188891e53fa/aws-sam-cli-0.10.0.tar.gz"
+  sha256 "523cd125bd89cd1d42559101a8500f74f88067fd9b26f72b1d05c5d00a76bed9"
   head "https://github.com/TheSriram/aws-sam-cli.git", :branch => "develop"
   bottle do
   end
