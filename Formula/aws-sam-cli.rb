@@ -1,15 +1,21 @@
 class AwsSamCli < Formula
   include Language::Python::Virtualenv
 
-  desc "AWS SAM CLI"
-  homepage "https://docs.aws.amazon.com/serverless-application-model/latest/developerguide"
-  url "https://files.pythonhosted.org/packages/2d/47/618e89211a10c3fc007949f84e88544722e8f9e43299ed28f188891e53fa/aws-sam-cli-0.10.0.tar.gz"
-  sha256 "523cd125bd89cd1d42559101a8500f74f88067fd9b26f72b1d05c5d00a76bed9"
-  head "https://github.com/TheSriram/aws-sam-cli.git", :branch => "develop"
+  desc "SAM command line interface"
+  homepage "https://mysamwebpage.com/aws-sam-cli"
+  url "https://github.com/awslabs/aws-sam-cli/archive/v0.6.0.tar.gz"
+  sha256 "f85762aba829525eb8c6a52d354ef7254ed37e5bc8a7389885fd0daebfea1c96"
+  head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
   bottle do
+    root_url "https://dl.bintray.com/thesriram/aws-sam-cli"
+    cellar :any_skip_relocation
+    rebuild 1
+    sha256 "e861e50c9a0b5b595dd4c0a548796d05cc449aa64dc14e6a989e00ba92aa7700" => :sierra
   end
 
-  depends_on "python3"
+  # Some AWS APIs require TLS1.2, which system Python doesn't have before High
+  # Sierra
+  depends_on "python"
 
   def install
     venv = virtualenv_create(libexec, "python3")
