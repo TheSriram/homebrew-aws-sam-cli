@@ -7,6 +7,12 @@ class AwsSamCli < Formula
   sha256 "cdfdb39c1b0fc8925b8e24719d934c2e676cc675b10532d038c1fb90dd8d3786"
   head "https://github.com/awslabs/aws-sam-cli.git", :branch => "develop"
 
+  bottle do
+    root_url "https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v0.15.0/"
+    cellar :any
+    sha256 "129f48648395f3bab0bc865c70f4cba33302525d47f1252196f6de1c32b59ec1" => :sierra_or_later
+  end
+
   depends_on "python"
 
   def install
