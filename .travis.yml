@@ -7,12 +7,9 @@ compiler:
 before_install:
   - brew update
 script:
-  - git fetch --tags
-  - git checkout $(git describe --abbrev=0 --tags)
-  - git log
   - brew tap thesriram/aws-sam-cli
-  - brew install --build-from-source --build-bottle Formula/aws-sam-cli.rb
-  - brew bottle aws-sam-cli
+  - brew install --build-bottle aws-sam-cli
+  - brew bottle --no-rebuild --json --root-url=https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v0.15.0/ aws-sam-cli
 before_deploy:
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
   - 'echo ''Deploying files to Github: ''$RELEASE_FILES'
