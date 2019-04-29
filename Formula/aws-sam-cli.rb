@@ -10,7 +10,7 @@ class AwsSamCli < Formula
     root_url "https://dl.bintray.com/thesriram/aws-sam-cli"
     cellar :any_skip_relocation
     rebuild 1
-    sha256 "e861e50c9a0b5b595dd4c0a548796d05cc449aa64dc14e6a989e00ba92aa7700" => :sierra
+    sha256 "129f48648395f3bab0bc865c70f4cba33302525d47f1252196f6de1c32b59ec1" => :sierra
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
