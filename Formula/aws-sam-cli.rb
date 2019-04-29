@@ -8,8 +8,6 @@ class AwsSamCli < Formula
   head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
   bottle do
     root_url "https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v0.15.0/"
-    cellar :any_skip_relocation
-    rebuild 1
     sha256 "129f48648395f3bab0bc865c70f4cba33302525d47f1252196f6de1c32b59ec1" => :sierra_or_later
   end
 
