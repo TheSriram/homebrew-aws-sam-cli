@@ -8,7 +8,7 @@ class AwsSamCli < Formula
   head "https://github.com/TheSriram/aws-cli.git", :branch => "develop"
   bottle do
     root_url "https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v0.15.0/"
-    sha256 "646a73abc522f3365ebfef06215b7d88b35c8b6c2ad70dbcd267f98fd994e4d9" => :sierra 
+    sha256 "646a73abc522f3365ebfef06215b7d88b35c8b6c2ad70dbcd267f98fd994e4d9" => :elcapitan 
   end
 
   # Some AWS APIs require TLS1.2, which system Python doesn't have before High
