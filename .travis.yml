@@ -4,8 +4,6 @@ os: osx
 osx_image: xcode9.2
 compiler:
   - clang
-before_install:
-  - brew update
 script:
   - brew tap thesriram/aws-sam-cli
   - brew install --build-bottle aws-sam-cli
