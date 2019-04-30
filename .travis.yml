@@ -11,6 +11,7 @@ script:
 before_deploy:
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
   - echo 'Sanity check of bottle'
+  - brew uninstall aws-sam-cli
   - brew install $RELEASE_FILES
   - sam --version
   - echo 'Sanity check passed!'
