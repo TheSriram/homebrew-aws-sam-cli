@@ -10,6 +10,10 @@ script:
   - brew bottle --no-rebuild --json --root-url=https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v0.15.0/ aws-sam-cli
 before_deploy:
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
+  - 'echo 'Sanity check of bottle'
+  - brew install $RELEASE_FILES
+  - sam --version
+  - 'echo 'Sanity check passed!'
   - 'echo ''Deploying files to Github: ''$RELEASE_FILES'
 deploy:
   provider: releases
