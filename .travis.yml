@@ -29,6 +29,7 @@ deploy:
   region: us-west-2
   acl: bucket_owner_full_control
   local_dir: $TRAVIS_BUILD_DIR/release_artifacts
+  upload-dir: $SAM_CLI_VERSION/bottles
   skip_cleanup: true
   on:
     branch: master
