@@ -15,14 +15,17 @@ before_deploy:
   - brew install $RELEASE_FILES
   - sam --version
   - echo 'Sanity check passed!'
-  - echo 'Deploying files to Github'
+  - echo 'Deploying files to S3'
+  - mkdir release_artifacts
+  - ls *.bottle.tar.gz | xargs -I{} cp {} release_artifacts/
+  - 'echo ''Deploying files to S3: ''$RELEASE_FILES'
 deploy:
-  provider: releases
-  api_key:
-    secure: $GITHUB_TOKEN
-  file: $RELEASE_FILES
-  skip_cleanup: true
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  bucket: aws-sam-cli-sriram-bottles
+  acl: bucket_owner_full_control
+  local_dir: release_artifacts/
   on:
-    all_branches: true
+    branch: release
     repo: TheSriram/homebrew-aws-sam-cli
-  overwrite: true
