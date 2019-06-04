@@ -7,7 +7,8 @@ compiler:
 script:
   - brew tap thesriram/aws-sam-cli
   - brew install --build-bottle aws-sam-cli
-  - brew bottle --no-rebuild --json --root-url=https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v0.15.0/ aws-sam-cli
+  - export SAM_CLI_VERSION=$(cat $TRAVIS_BUILD_DIR/Formula/aws-sam-cli.rb | grep -v root_url | grep url | awk -F'/v' '{print $2}' | awk -F '.tar' '{print $1}')
+  - brew bottle --no-rebuild --json --root-url=https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v$(SAM_CLI_VERSION)/ aws-sam-cli
 before_deploy:
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
   - echo 'Sanity check of bottle'
@@ -19,13 +20,15 @@ before_deploy:
   - mkdir release_artifacts
   - ls *.bottle.tar.gz | xargs -I{} cp {} release_artifacts/
   - 'echo ''Deploying files to S3: ''$RELEASE_FILES'
+  - echo $PWD
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: aws-sam-cli-sriram-bottles
   acl: bucket_owner_full_control
-  local_dir: release_artifacts/
+  local_dir: $TRAVIS_BUILD_DIR/release_artifacts
+  skip_cleanup: true
   on:
     branch: master
     repo: TheSriram/homebrew-aws-sam-cli
