@@ -10,8 +10,10 @@ script:
   - export SAM_CLI_VERSION=$(cat $TRAVIS_BUILD_DIR/Formula/aws-sam-cli.rb | grep -v root_url | grep url | awk -F'/v' '{print $2}' | awk -F '.tar' '{print $1}')
   - export ROOT_URL=$(echo "https://github.com/TheSriram/homebrew-aws-sam-cli/releases/download/v"$SAM_CLI_VERSION"/")
   - brew bottle --no-rebuild --json --root-url=$ROOT_URL aws-sam-cli
+  - cd $TRAVIS_BUILD_DIR
+  - export COMMIT_HASH=$(git log -n 1 | head -n 1 | awk -F ' ' '{print $2}')
+  - echo $COMMIT_HASH
 before_deploy:
-  - export COMMIT_HASH=$(git rev-parse HEAD)
   - for bottle in *bottle.tar.gz; do mv "$bottle" "$(echo "$bottle" | sed s/--/-/)"; done
   - export RELEASE_FILES=$(ls *.bottle.tar.gz)
   - echo 'Sanity check of bottle'
