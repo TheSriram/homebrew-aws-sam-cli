@@ -26,6 +26,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: aws-sam-cli-sriram-bottles
+  region: us-west-2
   acl: bucket_owner_full_control
   local_dir: $TRAVIS_BUILD_DIR/release_artifacts
   skip_cleanup: true
