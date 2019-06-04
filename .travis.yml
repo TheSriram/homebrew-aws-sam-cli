@@ -27,5 +27,5 @@ deploy:
   acl: bucket_owner_full_control
   local_dir: release_artifacts/
   on:
-    branch: release
+    branch: master
     repo: TheSriram/homebrew-aws-sam-cli
